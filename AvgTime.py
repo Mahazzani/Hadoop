@@ -20,10 +20,10 @@ class MRCount(MRJob):
         yield duration_minutes, 1
 
 
-    def combiner(self, month, count):
+    def combiner(self, duration_minutes, count):
         yield duration_minutes, sum(count)
 
-    def reducer(self, month, count):
+    def reducer(self, duration_minutes, count):
         yield duration_minutes, sum(count)
 
 if __name__ == '__main__':
